@@ -10,7 +10,7 @@ def getPaths(directory):
     """
     filePaths = []
     fileTypes = ['xml', 'mxl']
-    for file in listdir(directory):
+    for file in sorted(listdir(directory)):
         fileType = file.split('.')[-1].lower()
         if fileType in fileTypes:
             filePaths.append(path.join(directory, file))
