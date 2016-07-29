@@ -1,7 +1,7 @@
 from music21 import converter, corpus
 from os import listdir, path, getcwd, chdir
 from json import dump
-import sys, webbrowser, SimpleHTTPServer, SocketServer, shutil, pkgutil
+import sys, webbrowser, http.server, socketserver, shutil, pkgutil
 
 def getPaths(directory):
     """
@@ -60,7 +60,7 @@ def getEntries(collection):
     total = len(collection)
     for i, s in enumerate(collection):
         data.append(createEntry(s))
-    	progress = i * 1.0 / total * 100
+        progress = i * 1.0 / total * 100
         sys.stdout.write("  --  Processing melodies: %d%%\r" % progress)
         sys.stdout.flush()
     return data
@@ -76,20 +76,20 @@ def outputData(data):
     savePath = 'results/collection_data.json'
     with open(savePath, 'w') as outfile:
         dump(data, outfile)
-        print '  --  Data saved to', savePath
+        print('  --  Data saved to', savePath)
     return
 
 def openWebBrowser():
     """Opens the vizualization in a locally-served web page"""
-    print "\nPreparing to serve chart locally on port 9999."
-    print "If you receive an 'port already in use' error, try 'kill 9999' or "
-    print "wait a few moments before running the command again."
-    print "You may also need to reload the website once it loads.\n"
+    print("\nPreparing to serve chart locally on port 9999.")
+    print("If you receive an 'port already in use' error, try 'kill 9999' or ")
+    print("wait a few moments before running the command again.")
+    print("You may also need to reload the website once it loads.\n")
     webbrowser.open('localhost:9999')
     chdir('results/')
     Handler = SimpleHTTPServer.SimpleHTTPRequestHandler
     httpd = SocketServer.TCPServer(("", 9999), Handler)
-    print "Serving at port 9999..."
+    print("Serving at port 9999...")
     httpd.serve_forever()
 
 def createDataFromDirectoryCommandLine():
