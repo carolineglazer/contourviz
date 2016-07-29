@@ -103,15 +103,14 @@ def createDataFromDirectoryCommandLine():
 
 def createAwesomeDataFromDirectoryCommandLine():
     """An eventually-awesome-er version of the one above"""
-    paths = getPaths(sys.argv[1])
-    for path in paths:
-        print(path)
-    print("This is different from the original!")
+#    paths = getPaths(sys.argv[1])
+#    for path in paths:
+#        print(path)
+#    print("This is different from the original!")
 #    streams = createStreams(paths)
 #    entries = getEntries(streams)
 #    outputData(entries)
-#    openWebBrowser()
-
+    openWebBrowser()
     return
 
 
