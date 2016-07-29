@@ -87,8 +87,8 @@ def openWebBrowser():
     print("You may also need to reload the website once it loads.\n")
     webbrowser.open('localhost:9999')
     chdir('results/')
-    Handler = SimpleHTTPServer.SimpleHTTPRequestHandler
-    httpd = SocketServer.TCPServer(("", 9999), Handler)
+    Handler = http.server.SimpleHTTPRequestHandler
+    httpd = socketserver.TCPServer(("", 9999), Handler)
     print("Serving at port 9999...")
     httpd.serve_forever()
 
