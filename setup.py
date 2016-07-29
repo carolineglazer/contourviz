@@ -17,7 +17,8 @@ setup(name = 'contourviz',
     entry_points = {
         'console_scripts': [
             'chart-contours = contourviz:createDataFromDirectoryCommandLine',
-            'chart-single-contour = contourviz:createDataFromFileCommandLine'
+            'chart-single-contour = contourviz:createDataFromFileCommandLine',
+            'chart-awesome-contours = contourviz:createAwesomeDataFromDirectoryCommandLine'
         ]
     },
     package_data = {
