@@ -32,9 +32,14 @@ def createStreams(paths):
     return streams
 
 def createEntry(thisScore):
-    """Accept a music21 score object and return an object that includes an array of notes (with durations and frequencies) and metadata including a title"""
+    """Accept a music21 score object and return an object that includes an array of notes (with durations and frequencies) and metadata including a title, location, and key"""
     entry = {}
     entry["title"] = thisScore.metadata.title
+    entry["location"] = thisScore.metadata.localeOfComposition
+    entry["orig_key"] = thisScore.metadata.number
+    entry["actual_title"] = thisScore.alternativeTitle
+    entry["meter"] = thisScore.recurse().getElementsByClass(meter.TimeSignature)[0]
+    entry["year"] = thisScore.metadata.date
     entry["notes"] = getNotes(thisScore)
     return entry
 
@@ -109,7 +114,7 @@ def createAwesomeDataFromDirectoryCommandLine():
 #    print("This is different from the original!")
 #    streams = createStreams(paths)
 #    entries = getEntries(streams)
-#    outputData(entries)
+    outputData('peggy_data.json')
     openWebBrowser()
     return
 
