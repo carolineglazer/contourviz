@@ -35,10 +35,10 @@ def createEntry(thisScore):
     """Accept a music21 score object and return an object that includes an array of notes (with durations and frequencies) and metadata including a title, location, and key"""
     entry = {}
     entry["title"] = thisScore.metadata.title
-    entry["location"] = thisScore.metadata.compose
+    entry["location"] = thisScore.metadata.composer
     entry["year"] = thisScore.metadata.movementNumber
     entry["number"] = thisScore.metadata.movementName
-    entry["meter"] = thisScore.recurse().getElementsByClass(meter.TimeSignature)[0]
+#    entry["meter"] = thisScore.recurse().getElementsByClass(meter.TimeSignature)[0]
     entry["notes"] = getNotes(thisScore)
     return entry
 
