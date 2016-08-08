@@ -53,8 +53,10 @@ def getNotes(thisScore):
         noteEntry["offset"] = float(n.getOffsetBySite(recursiveScore)) - initialRestOffset
         noteEntry["duration"] = float(n.quarterLength)
         noteEntry["frequency"] = 'rest'
+        noteEntry["pitch"] = 'rest'
         if n.isNote:
             noteEntry["frequency"] = n.pitch.frequency
+            noteEntry["pitch"] = n.pitch
         notes.append(noteEntry)
     return notes
 
