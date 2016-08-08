@@ -61,6 +61,58 @@ def getNotes(thisScore):
         notes.append(noteEntry)
     return notes
 
+def assignPitchNum(n):
+    if n == "G3":
+        pn = 0
+    elif n == "A-3":
+        pn = 1
+    elif n == "A3":
+        pn = 2
+    elif n == "B-3":
+        pn = 3
+    elif n == "B3":
+        pn = 4
+    elif n == "C4":
+        pn = 5
+    elif n == "D-4":
+        pn = 6
+    elif n == "D4":
+        pn = 7
+    elif n == "E-4":
+        pn = 8
+    elif n == "E4":
+        pn = 9
+    elif n == "F4":
+        pn = 10
+    elif n == "G-4":
+        pn = 11
+    elif n == "G4":
+        pn = 12
+    elif n == "A-4":
+        pn = 13
+    elif n == "A4":
+        pn = 14
+    elif n == "B-4":
+        pn = 15
+    elif n == "B4":
+        pn = 16
+    elif n == "C5":
+        pn = 17
+    elif n == "D-5":
+        pn = 18
+    elif n == "D5":
+        pn = 19
+    elif n == "E-5":
+        pn = 20
+    elif n == "E5":
+        pn = 21
+    elif n == "F5":
+        pn = 22
+    elif n == "G-5":
+        pn = 23
+    elif n == "G5":
+        pn = 24
+
 def getEntries(collection):
     """Accept an array of music21 streams and write a JSON object of created data entries"""
     data = []
