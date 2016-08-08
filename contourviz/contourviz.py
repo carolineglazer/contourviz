@@ -58,11 +58,13 @@ def getNotes(thisScore):
             noteEntry["frequency"] = n.pitch.frequency
             noteEntry["pitch"] = n.pitch.nameWithOctave
             noteEntry["pitchNum"] = assignPitchNum(n.pitch.nameWithOctave)
+            print(noteEntry["pitchNum"])
         notes.append(noteEntry)
     return notes
 
 def assignPitchNum(n):
     n = str(n)
+    print(n)
     if n == "G3":
         pn = 0
     elif n == "A-3":
@@ -123,6 +125,7 @@ def assignPitchNum(n):
         pn = 28
     else:
         print("ERROR: ", n)
+    return pn
 
 def getEntries(collection):
     """Accept an array of music21 streams and write a JSON object of created data entries"""
