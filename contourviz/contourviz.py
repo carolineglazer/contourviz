@@ -10,7 +10,7 @@ def getPaths(directory):
     """
     filePaths = []
     fileTypes = ['xml', 'mxl']
-    for file in listdir(directory):
+    for file in sorted(listdir(directory)):
         fileType = file.split('.')[-1].lower()
         if fileType in fileTypes:
             filePaths.append(path.join(directory, file))
@@ -58,13 +58,11 @@ def getNotes(thisScore):
             noteEntry["frequency"] = n.pitch.frequency
             noteEntry["pitch"] = n.pitch.nameWithOctave
             noteEntry["pitchNum"] = assignPitchNum(n.pitch.nameWithOctave)
-            print(noteEntry["pitchNum"])
         notes.append(noteEntry)
     return notes
 
 def assignPitchNum(n):
     n = str(n)
-    print(n)
     if n == "G3":
         pn = 0
     elif n == "A-3":
