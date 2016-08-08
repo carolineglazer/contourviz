@@ -57,6 +57,7 @@ def getNotes(thisScore):
         if n.isNote:
             noteEntry["frequency"] = n.pitch.frequency
             noteEntry["pitch"] = n.pitch.nameWithOctave
+            noteEntry["pitchNum"] = assignPitchNum(n.pitch.nameWithOctave)
         notes.append(noteEntry)
     return notes
 
