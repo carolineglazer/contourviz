@@ -1,31 +1,37 @@
 ContourViz
 --------
+This is a modification of the contourviz package, whose original readme can be found on the original github page at https://github.com/cjwit/contourviz. It uses music21 to chart monophonic melodies within a set ambitus. This modification was built specifially to model variants of British folk songs for an undergraduate music thesis; thus, it has some specific quirks which will be annoying to someone who is trying to use it for not modelling the exact melodies for which it was built.
 
-This package uses music21 to process musical notation and creates a web-based visual
-representation of the melodic contour within the browser. It creates a stand-alone
-website within the current working directory called 'results'. It then serves this
-folder locally within the web browser, offering contour maps of either a single melody
-or all of the notation files within the passed folder path.
+This modification charts pitches by pitch name, rather than frequency. The advantage of this is that it is much more human-readable. The disadvantage is that the pitch names are manually assigned only to pitches within the ambitus of the melodies I was analyzing. To change this, you'll have to edit the contourviz.py file and also the script.js file in the generated results/ directory. 
 
-This library is an abstraction of a similar project presented at the 2016 Analytical Approaches to World
-Music conference in New York City. That set of contour maps, drawing from transcriptions of Moroccan
-malhun sung poetry, can be seen `here <https://cjwit.github.io/malhun-contour/index.html>`
+This modification is designed for use with Python 3. You need to have Python 3 installed to use it. The original version works only with Python 2. 
 
-Single contour map example
+To see the results of this package in action, see http://www.carolineglazer.co.nf/peggy/. Some examples:
+
+Contour map example for 29 variants of the folk song "Peggy-O", or "The Bonnie Lass O' Fyvie"
 
 .. image:: images/ex1.png
    :scale: 50 %
    :alt: Screen shot of a single-melody contour map
 
-Multiple contour map example (rendered using a directory as described below)
+Same contour map with 4 different variants highlighted
 
 .. image:: images/ex2.png
    :scale: 50 %
    :alt: Screen shot of a single-melody contour map
 
-To install:
+To install (the original countourviz package, NOT this version):
 
     >>> pip install contourviz
+
+To install this version:
+
+   >>> # Clone this git repository.
+   >>> git clone https://github.com/carolineglazer/contourviz.git
+   >>> cd contourviz
+   >>> 
+   >>> # Build the python module
+   >>> sudo python3 setup.py install
 
 To use on the command line:
 
@@ -47,9 +53,3 @@ For use within the Python interpreter:
     >>>
     >>> # Create a set of contour lines from all files in a given directory
     >>> createDataFromDirectory(testPath)
-
-This is the earliest stages of the project, and future updates include fixing the following issues:
-
-* It currently only works with single line (monophonic) melodies.
-* The Y axis currently does not render specific pitch names.
-* When using the interpreter: after serving the file, the Python script does not return to the correct working directory. This may require exiting and reentering the interpreter or navigating the command line to repeat the process.
