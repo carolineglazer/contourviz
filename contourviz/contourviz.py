@@ -127,7 +127,7 @@ def assignPitchNum(n):
         print("ERROR: ", n)
         print("The above note is out of the range that contourviz.py can handle.")
         print("To fix this error, you need to change the pitchNumber assignments to match the ambitus of the pieces you're analyzing.")
-        break
+        return
     return pn
 
 def getEntries(collection):
