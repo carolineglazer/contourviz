@@ -6,7 +6,7 @@ This modification charts pitches by pitch name, rather than frequency. The advan
 
 This modification is designed for use with Python 3. You need to have Python 3 installed to use it. The original version works only with Python 2. 
 
-To see the results of this package in action, see http://www.carolineglazer.co.nf/peggy/. Some examples:
+Some examples:
 
 Contour map example for 29 variants of the folk song "Peggy-O", or "The Bonnie Lass O' Fyvie"
 
