@@ -191,7 +191,7 @@ var createFinalPitch = function(m) {
     return lastNote;
 }
 
-var formatData = function(data, mode) {
+var formatData = function(data) {
     data = offsetToPercent(data);
     shortestDuration = d3.min(data, function(d) {
         return (d3.min(d.notes, function(d) { return d.duration }))
@@ -201,11 +201,6 @@ var formatData = function(data, mode) {
     data.map(function(m) {
         var melody = {};
 	//set melody.title
-	if (mode == "number") {melody.title = m.number; }
-	else if (mode == "name") {melody.title = m.title; }
-	else if (mode == "location") {melody.title = m.location; }
-	else if (mode == "year") {melody.title = m.year; }
-	//set other melody features
 	melody.name = m.title;
 	melody.location = m.location;
 	melody.year = m.year;
@@ -234,15 +229,11 @@ var formatData = function(data, mode) {
     return withEndPoints;
 }
 
-var chartPitches = function(mode) {
+var chartPitches = function() {
     d3.json('collection_data.json', function(error, data) {
         if (error) {return console.warn(error);}
-	
-	if (mode === "number") {data = formatData(data,"number");}
-	else if (mode === "name") {data = formatData(data,"name");}
-	else if (mode === "location") {data = formatData(data,"location");}
-	else if (mode === "year") {data = formatData(data,"year");}
 
+	data = formatData(data);
 	setColors(data);
 
         x.domain([0, (d3.max(data, function(d) {
@@ -322,3 +313,5 @@ var chartPitches = function(mode) {
 
     })
 }
+
+chartPitches();
