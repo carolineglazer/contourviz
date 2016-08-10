@@ -201,7 +201,7 @@ var formatData = function(data) {
     data.map(function(m) {
         var melody = {};
 	//set melody.title
-	melody.name = m.title;
+	melody.title = m.title;
 	melody.location = m.location;
 	melody.year = m.year;
 	melody.number = m.number;
