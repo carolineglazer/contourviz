@@ -1,5 +1,6 @@
 # Compiled python modules.
 *.pyc
+/build/lib/contourviz/contourviz.py
 
 # Setuptools distribution folder.
 /dist/
