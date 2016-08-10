@@ -61,6 +61,8 @@ def getNotes(thisScore):
         notes.append(noteEntry)
     return notes
 
+# NOTE: These values should be changed and/or added to to match the ambitus
+# of whichever piece(s) you are analyzing.
 def assignPitchNum(n):
     n = str(n)
     if n == "G3":
@@ -123,6 +125,9 @@ def assignPitchNum(n):
         pn = 28
     else:
         print("ERROR: ", n)
+        print("The above note is out of the range that contourviz.py can handle.")
+        print("To fix this error, you need to change the pitchNumber assignments to match the ambitus of the pieces you're analyzing.")
+        break
     return pn
 
 def getEntries(collection):
